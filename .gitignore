@@ -1,0 +1,17 @@
+# Inclui todos os arquivos de texto
+#*.txt
+
+# Inclui o diretório chamado venv e todos os seus arquivos e subdiretórios
+venv/
+
+# Inclui o diretório chamado .vscode e todos os seus arquivos e subdiretórios
+.vscode/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
