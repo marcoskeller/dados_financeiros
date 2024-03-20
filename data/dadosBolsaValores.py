@@ -1,11 +1,12 @@
-
+import yfinance as yf
+import investpy as ip
 
 
 class DadosFinanceirosBancoDeDados():
     
     #Paises Para Consulta  
     def  paises():
-        paises = ['','Brasil', 'Estados Unidos da América']
+        paises = ['Brasil', 'Estados Unidos da América']
         return paises
 
     #Acoes Disponiveis no Yahoo Finance        
@@ -19,3 +20,15 @@ class DadosFinanceirosBancoDeDados():
     def intervalo(): 
         intervalo = ['','Daily', 'Weekly', 'Monthly']
         return intervalo
+    
+
+    #Obtendo os dados da ação Brasileira no Yahoo Finance
+    def obterDadosAcoesBrasileira(acaoEscolhida, data_inicial, data_final):
+        df = yf.download(acaoEscolhida, start=data_inicial, end=data_final, progress=False)
+        return df
+    
+
+    #Obtendo os Nomes das Acoes Americanas
+    def obterNomeAcoesAmericana():
+        nomeAcoesAmericana = ip.get_stocks_list(country='united states')
+        return nomeAcoesAmericana

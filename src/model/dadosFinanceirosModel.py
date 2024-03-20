@@ -19,3 +19,20 @@ def acoesYahooFinance():
 def intervalo(): 
     resultado = baseDadosData.DadosFinanceirosBancoDeDados.intervalo()
     return resultado
+
+
+#Formatando as Datas
+def format_date(dt, format='%d/%m/%Y'):
+	return dt.strftime(format)
+
+
+#Solicitar Dados Acao Brasileira
+def solicitarDadosAcoesBrasileira(acaoEscolhida, data_inicial, data_final):
+     resultado = baseDadosData.DadosFinanceirosBancoDeDados.obterDadosAcoesBrasileira(acaoEscolhida, data_inicial, data_final)
+     return resultado
+
+
+#Solicitar Nome Acoes Americana
+def solicitarNomeAtivosBolsaAmericana():
+     resultado = baseDadosData.DadosFinanceirosBancoDeDados.obterNomeAcoesAmericana()
+     return resultado

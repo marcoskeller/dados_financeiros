@@ -11,9 +11,9 @@ def inicio():
             page_title="Dados Financeiros",
             layout="wide"
         )
-        Pagina_Visualizacao.pagina_View()
+        #Pagina_Visualizacao.pagina_View()
         #inicializandoPagina.inicio_view()
-        #dadosController.DadosFinanceirosController.start()
+        dadosController.DadosFinanceirosController.start()
     except:
         print("Erro ao Inicializar")
 
