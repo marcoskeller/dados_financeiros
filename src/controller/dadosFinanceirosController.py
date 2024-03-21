@@ -35,8 +35,17 @@ class DadosFinanceirosController():
     #Obtendo os Dados da Acao Escolhida
     def exibiDadosAcaoSelecionada(acaoEscolhida, data_inicial, data_final):   
         if acaoEscolhida != '':
-            st.write('Exibi dados da Ação.')
+            #Qual ação foi escolhida
+            st.subheader(acaoEscolhida)
             resultado = baseDadosModel.solicitarDadosAcoesBrasileira(acaoEscolhida, data_inicial, data_final)
             return st.dataframe(resultado, use_container_width=True)
         else:
             st.write('Escolha um Ativo')
+
+    #Plotando o Grafico Simples
+    def exibiGraficoSimplesController(opcao, acaoEscolhida, data_inicial, data_final):
+        if opcao == 'SIM':
+            resultado = baseDadosModel.plotaGraficoSimplesModel(acaoEscolhida, data_inicial, data_final)
+            return resultado
+        else:
+            print()

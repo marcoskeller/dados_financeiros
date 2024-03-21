@@ -32,6 +32,11 @@ def inicio_view():
 
         #Obten Dados da Ação Escolhida
         dadosController.DadosFinanceirosController.exibiDadosAcaoSelecionada(selecionando_acao, data_inicial, data_final)
+
+        #Exibicao do Grafico
+        opcao = ['SIM', 'NÃO']
+        exibiGraficoSimples = st.sidebar.selectbox("Deseja Exibir o Gráfico: ", opcao, None)
+        dadosController.DadosFinanceirosController.exibiGraficoSimplesController(exibiGraficoSimples,selecionando_acao, data_inicial, data_final)
         
     except Exception as error:
         st.write(error)
