@@ -41,10 +41,14 @@ class DadosFinanceirosBancoDeDados():
 
     #Obtendo os dados da ação Brasileira no Yahoo Finance Get
     def obterDadosAcoesGetDataYahoo(acaoEscolhida, data_inicial, data_final):
-        #df = yf.download(acaoEscolhida, start=data_inicial, end=data_final, progress=False)
         yf.pdr_override()
-        #ibov = web.get_data_yahoo('GOOG')
-        #vale3 = web.get_data_yahoo(('VALE3.SA'), start=data_inicial, end=data_final)
         resultado = web.get_data_yahoo((acaoEscolhida), start=data_inicial, end=data_final)
         return resultado
     
+
+    #Obtendo os dados da ação Brasileira no Yahoo Finance Dowload
+    def obterDadosAcoesDownloadDataYahoo(acaoEscolhida, data_inicial, data_final):
+        yf.pdr_override()
+        #resultado = web.get_data_yahoo((acaoEscolhida), start=data_inicial, end=data_final)
+        resultado = yf.download((acaoEscolhida), start=data_inicial, end=data_final, period='id')
+        return resultado

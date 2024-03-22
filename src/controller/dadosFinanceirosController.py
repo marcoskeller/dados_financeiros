@@ -49,3 +49,11 @@ class DadosFinanceirosController():
             return resultado
         else:
             print()
+    
+    #Plotando o Grafico Simples Matplot
+    def exibiGraficoSimplesMatPlotController(opcao, acaoEscolhida, data_inicial, data_final):
+        if opcao == 'SIM':
+            resultado = baseDadosModel.plotaGraficoSimplesMatPlotModel(acaoEscolhida, data_inicial, data_final)
+            return resultado
+        else:
+            print()

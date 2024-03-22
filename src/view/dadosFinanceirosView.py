@@ -37,6 +37,11 @@ def inicio_view():
         opcao = ['SIM', 'NÃO']
         exibiGraficoSimples = st.sidebar.selectbox("Deseja Exibir o Gráfico: ", opcao, None)
         dadosController.DadosFinanceirosController.exibiGraficoSimplesController(exibiGraficoSimples,selecionando_acao, data_inicial, data_final)
+
+        #Exibicao do Grafico
+        opcao = ['SIM', 'NÃO']
+        exibiGraficoSimplesMatPlot = st.sidebar.selectbox("Deseja Exibir o Gráfico MatPlot: ", opcao, None)
+        dadosController.DadosFinanceirosController.exibiGraficoSimplesMatPlotController(exibiGraficoSimplesMatPlot,selecionando_acao, data_inicial, data_final)
         
     except Exception as error:
         st.write(error)
