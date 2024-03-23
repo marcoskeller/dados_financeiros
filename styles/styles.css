@@ -1,0 +1,37 @@
+
+/* .stApp stAppEmbeddingId-sarib3jemuwf streamlit-wide st-emotion-cache-1ibzyj6 erw9t6i1{
+    background-color: #32a852; 
+} */
+
+/* body {
+    background-color: #152f834b; 
+    background: -webkit-linear-gradient(to right, #ff0099, #493240); 
+    background: linear-gradient(to right, #ff0099, #493240); 
+  } */
+
+
+
+/* .stApp {
+    background-color: #9dd6ac; 
+} */
+
+
+/* body {
+    color: #fff;
+    background-color: #4F8BF9;
+} */
+
+
+.stApp > header {
+    background-color: transparent;
+}
+
+.stApp {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+    background: linear-gradient(315deg, #4f2991 3%, #7dc4ff 38%, #36cfcc 68%, #a92ed3 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}

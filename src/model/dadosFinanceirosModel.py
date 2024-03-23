@@ -1,4 +1,4 @@
-import src.controller.dadosFinanceirosController as dadosController
+#import src.controller.dadosFinanceirosController as dadosController
 from data import dadosBolsaValores as baseDadosData
 import matplotlib.pyplot as plt
 import streamlit as st

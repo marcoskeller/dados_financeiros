@@ -1,20 +1,15 @@
 import streamlit as st
-import src.view.dadosFinanceirosView as inicializandoPagina
-import src.controller.dadosFinanceirosController as dadosController
-import src.view.index as Pagina_Visualizacao
+import src.controller.Inicio.paginaInicioController as dadosController
 
 
+#Inicializa o Programa
 def inicio():
     try:
-        #Configuracao do Nome do Site
-        st.set_page_config(
-            page_title="Dados Financeiros",
-            layout="wide"
-        )
-        #Pagina_Visualizacao.pagina_View()
-        #inicializandoPagina.inicio_view()
-        dadosController.DadosFinanceirosController.start()
-    except:
-        print("Erro ao Inicializar")
+        dadosController.DadosFinanceirosController.start_inicio_controller()    
+    except Exception as error:
+        print(error)
+        #Apagar essa linha quando subir para PRD
+        st.write(error)
+        
 
 inicio()

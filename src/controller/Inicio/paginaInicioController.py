@@ -1,15 +1,20 @@
 import streamlit as st
 import src.model.dadosFinanceirosModel as baseDadosModel
-import src.view.dadosFinanceirosView as paginaView
+import src.view.Inicio.paginaInicialView as pagina_inicial_view
+import src.view.Financeiro.lista_observacao as pagina_lista_obervacao
+
 
 
 
 class DadosFinanceirosController():
     
     #Funcao que chama a pagina inicial View
-    def start():
-        opcao = paginaView.inicio_view()
-        
+    def start_inicio_controller():
+        opcao = pagina_inicial_view.inicio_view()
+    
+    #Funcao que chama a pagina inicial View
+    def pagina_lista_obervacal():
+        opcao = pagina_lista_obervacao.pagina_lista_obervcacao()
 
     def selecionaPais():
         resultado = baseDadosModel.paises()
