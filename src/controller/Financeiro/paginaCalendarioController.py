@@ -14,6 +14,7 @@ class FinanceiroCalendarioController():
         #Funcao que chama o modulo Calendario do Model
         def exibi_modelo_calendario_controller():
             opcao = pagina_calendario_model.gera_calendario_model()
+
     except Exception as error:
         print(error)
         #Apagar essa linha quando subir para PRD
