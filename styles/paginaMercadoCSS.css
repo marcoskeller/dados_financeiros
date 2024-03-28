@@ -21,13 +21,26 @@
     background-attachment: fixed;
 } */
 
+/*
+background-color: #708090; #719898 color: #ffffff;
+*/
 
 .stApp {
     margin: auto;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     overflow: auto;
-    background: linear-gradient(315deg, #e7ffff 3%, #7dc4ff 38%, #36cfcc 68%, #63d4d3 98%);
+    background-color: #708090;
     animation: gradient 15s ease infinite;
     background-size: 400% 400%;
     background-attachment: fixed;
+}
+
+
+
+#titulo_pagina{
+    text-align: center; 
+    color: #db2626;
+    font-size: 80px;
+    font-size: xxx-large;
+
 }

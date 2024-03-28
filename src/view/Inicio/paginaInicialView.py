@@ -2,7 +2,7 @@ import streamlit as st
 import datetime as dt
 import hydralit_components as hc
 import datetime
-import src.controller.Financeiro.paginaListaObervacaoController as lista_observacao_controller
+import src.controller.Financeiro.Analises_Financeiras.paginaListaObervacaoController as lista_observacao_controller
 import src.controller.Financeiro.paginaCalendarioController as pagina_calendario_controller
 import src.controller.Financeiro.Mercado.paginaAnaliseFinanceiraController as pagina_analise_financeira_controller
 

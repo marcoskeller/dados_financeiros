@@ -6,6 +6,15 @@ import src.controller.Financeiro.paginaCalendarioController as pagina_calendario
 
 try:
     def pagina_calendario_view():
+        
+        
+        #Configuraca do Estilo CSS da Pagina
+        with open('./styles/paginaCalendarioCSS.css') as f:
+          css = f.read()
+       
+        st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+        
+        #Chamando o Calendario
         pagina_calendario_controller.FinanceiroCalendarioController.exibi_modelo_calendario_controller()
         #st.write('Este é um teste para validar a chamada de página')
         # with elements("new_element"):
