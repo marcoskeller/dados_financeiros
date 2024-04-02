@@ -2,6 +2,12 @@ import streamlit as st
 import yfinance as yf
 import investpy as ip
 import pandas_datareader.data as web
+import seaborn as sns
+import string
+import warnings
+warnings.filterwarnings('ignore')
+import pandas as pd
+import requests
 
 
 
@@ -123,3 +129,72 @@ class DadosFinanceirosBancoDeDados():
         resultado = web.get_data_yahoo((tickers), start=data_inicial, end=data_final)["Adj Close"]
         resultado = resultado/10000
         return resultado
+    
+
+    def obterDadosAcoesYahooMediaGeral(tickers, data_inicial, data_final):
+        yf.pdr_override()
+        
+        #Adcionando o Sufixo SA para usarmos a API do yahoo
+        tickers = [t+".SA" for t in tickers]
+   
+        list_tickers = []
+        
+        #Buscando o Indice da Bovespa
+        for item in tickers:
+            list_tickers.append(item)
+            
+
+        #Funcao Para Buscar o Indice da Bovespa
+        for i in range(len(list_tickers)):
+            if list_tickers[i] == "IBOV.SA":
+                list_tickers[i] = "^BVSP"
+            elif list_tickers[i] == "^BVSP":
+                pass
+
+        
+        #resultado = yf.download((tickers), start=data_inicial, end=data_final)["Adj Close"]
+        resultado = web.get_data_yahoo((list_tickers), start=data_inicial, end=data_final)
+        return resultado
+    
+
+    #Obtendo os dados da ação Brasileira no Yahoo Finance Dowload com Todas as Colunas
+    def obterDadosAcoesYahooIbovespaVersusDolar(tickers, data_inicial, data_final):
+        yf.pdr_override()
+        
+        #Adcionando o Sufixo SA para usarmos a API do yahoo
+        tickers = [t+".SA" for t in tickers]
+   
+        list_tickers = []
+        
+        #Buscando o Indice da Bovespa
+        for item in tickers:
+            list_tickers.append(item)
+            
+
+        #Funcao Para Buscar o Indice da Bovespa
+        for i in range(len(list_tickers)):
+            if list_tickers[i] == "IBOV.SA":
+                list_tickers[i] = "^BVSP"
+            elif list_tickers[i] == "^BVSP":
+                pass
+
+        
+        #resultado = yf.download((tickers), start=data_inicial, end=data_final)["Adj Close"]
+        resultado = web.get_data_yahoo("^BVSP USDBRL=X", start=data_inicial, end=data_final)["Close"]
+        resultado = resultado.dropna()
+        resultado.columns = ["DOLAR", "IBOV"]
+        return resultado
+
+#Obtendo Informações das Empresas
+    def obterInformacoesEconomicasEmpresas():
+        url = 'http://www.fundamentus.com.br/resultado.php'
+
+        header = {
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36"  
+                }
+
+        r = requests.get(url, headers=header)
+        df = pd.read_html(r.text,  decimal=',', thousands='.')[0]
+     
+
+        return df

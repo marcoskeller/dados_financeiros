@@ -3,6 +3,8 @@ import datetime as dt
 from datetime import date, timedelta
 import src.controller.Financeiro.Analises_Financeiras.paginaListaObervacaoController as pagina_lista_observacao_controller
 import src.view.Financeiro.pages.Analises_Financeiras.analise_financeira_cotacao_tempo_view as cotacao_tempo_view
+import src.view.Financeiro.pages.Analises_Financeiras.pagina_analise_financeira_ibovespa_versus_dolar_view as ibovespa_versus_dolar
+import src.view.Financeiro.pages.Analises_Financeiras.pagina_analise_economica_da_empresa_view as analise_economica_da_empresa
 import pandas as pd
 import pandas_datareader.data as pdr
 from streamlit_option_menu import option_menu
@@ -23,7 +25,7 @@ try:
 
     st.sidebar.image("./images/bolsa_valores_sidebar.png")
     with st.sidebar:
-        selected = option_menu("Análises Financeiras", ["Início", 'Cotação x Tempo','Retorno Diário', 'Retorno Acumulado', 'Analise 5'], 
+        selected = option_menu("Análises Financeiras", ["Início", 'Cotação x Tempo','Retorno Diário', 'Média Móvel', 'Ibovespa X Dólar', 'Análise Fundamentalista'], 
             icons=['house', 'gear'], 
             menu_icon="cast", 
             default_index=1)
@@ -54,8 +56,11 @@ try:
     if selected == "Retorno Acumulado":
       st.write('Pagina 2')
     
-    if selected == "Retorno Acumulado":
-      st.write('Pagina 2')
+    if selected == "Ibovespa X Dólar":
+      resultado = ibovespa_versus_dolar.pagina_analise_financeira_ibovespa_versus_dolar_view()
+    
+    if selected == "Análise Fundamentalista":
+      resultado = analise_economica_da_empresa.pagina_analise_economica_da_empresa_view()
     
     #Buscando os Nome das Ações
     # ticker_list = pagina_lista_observacao_controller.FinanceiroListaObservacaoController.obter_ativos_bolsaValores_controller()
